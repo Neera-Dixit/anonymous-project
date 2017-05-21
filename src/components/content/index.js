@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import SidebarNav from './sidebarNav';
+import SidebarNav from './sidebarNav/index';
 import MediaItemContainer from './media/mediaItemContainer';
 
 export default class ContentContainer extends Component {

@@ -6,6 +6,19 @@
 
 
 #container {
+    
+    .navbar {
+        margin-bottom : 0;
+    }
+    
+    .form-group {
+        margin-bottom: 5px;
+    }
+    
+    .form-control {
+        height: 25px;
+    }
+    
     #header {
         height: 50px;
         border-bottom: 1px solid black;
@@ -19,16 +32,100 @@
         min-height: 539px;
         
         #sidebar-nav {
-            width: 16%;
+            width: 20%;
             display: inline-block;
             border-right: 1px solid #e7e7e7;
             min-height: 539px;
+            float: left;
+            
+            #searchBar {
+                border : 1px solid #999999;
+                margin: 10px;
+                background: #f2f2f2;
+                border-radius: 10px;
+                
+                form {
+                 padding: 10px;  
+                    #searchBtn {
+                        text-align: center;
+                        
+                        button {
+                            outline: none;
+                            border-radius: 100px;
+                        }
+                    }
+                }
+                
+                .search {
+                    text-align: center;
+                    padding: 0;
+                    background-color:  #008489;
+                    color: white;
+                    height: 25px;
+                    line-height: 25px;
+                    border-top-right-radius: 10px;
+                    border-top-left-radius: 10px;
+                    label {
+                        padding-right: 6px;
+                    }
+                }
+            }
+            
+            #filters {
+                border : 1px solid #999999;
+                margin: 10px;
+                border-radius: 10px;
+                
+                .filterLabel {
+                    text-align: center;
+                    padding: 0;
+                    background-color:  #008489;
+                    color: white;
+                    height: 25px;
+                    line-height: 25px;
+                    border-top-right-radius: 10px;
+                    border-top-left-radius: 10px;
+                    label {
+                        padding-right: 6px;
+                    }
+                }
+                
+                ul {
+                   list-style-type: none;
+                    
+                    .filterItem {
+                      padding-left: 27px;
+                    }
+                }
+                
+                .filterHeader {
+                    padding-left: 13px;
+                }
+            }
         }
         
         #mediaItemContainer {
-            width: 84%;
+            width: 80%;
             display: inline-block;
             min-height: 539px;
+            
+            #mediaItemSearchBar {
+                margin-left: 20px;
+                margin-top: 10px;
+                    
+                .form-control {
+                    width: 18%;
+                    border: 1px solid #999999
+                }  
+            }
+            
+            #mediaItemNavigation {
+                .pagination {
+                    margin: 0;
+                    float: right;
+                    margin-right: 20px;
+                }
+            }
             
             #mediaItemList {
                  margin: 20px;
@@ -42,8 +139,9 @@
                         display: inline-block;
                         width: 25%;
                         text-align: center;
-                        font-size: 23px;
+                        font-size: 16px;
                         font-family: Tahoma; 
+                        color: #848484;
                     }
                 }
             
@@ -57,7 +155,8 @@
                         display: inline-block;
                         width: 25%;
                         text-align: center;
-                        font-size: 18px;
+                        font-size: 14px;
+                        color: #848484;
                     }
 
                     div.imageCont{
@@ -72,7 +171,7 @@
                         width: 60%;
                         vertical-align: middle;
                         background-repeat: no-repeat;
-                        background-size: contain;
+                        background-size: 100% 100%;
                         background-position: center;
                     }
                     
@@ -89,7 +188,7 @@
     }
     
     #footer {
-        height: 50px;
+        height: 25px;
         bottom: 0;
         border-top: 1px solid #e7e7e7;
         width: 100%;

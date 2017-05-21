@@ -3,17 +3,20 @@ import mediaStore from '../../../stores/mediaStore';
 import mediaActions from '../../../actions/mediaActions';
 import MediaItem from './mediaItem';
 import MediaItemHeader from './mediaItemHeader';
+import MediaItemSearchBar from './mediaItemSearchBar';
+import MediaItemNavigation from './mediaItemNavigation';
 
 export default class MediaItemContainer extends Component {
     constructor(){
         super();
         this.state = {
-            mediaItems : []
+            mediaItems : [],
+            filterText : ""
         };
     }
     
     componentWillMount(){
-        mediaStore.on('fetched',this.fetchMediaAssets);
+        mediaStore.on('mediaFetched',this.fetchMediaAssets);
     }
     
     fetchMediaAssets = ()=>{
@@ -26,24 +29,44 @@ export default class MediaItemContainer extends Component {
     
     
     componentWillUnmount(){
-         mediaStore.off('fetched',this.fetchMediaAssets);
+         mediaStore.off('mediaFetched',this.fetchMediaAssets);
+    }
+    
+    
+    searchMediaItems = (searchText)=>{
+        this.setState({filterText : searchText});
     }
     
     render(){
         
-        const mediaItems = this.state.mediaItems;
+        let {mediaItems,filterText} = this.state;
+        
+        filterText = filterText.toLowerCase();
         
         const mediaItemsList = mediaItems.map((element,index)=>{
-            return <MediaItem {...element} key={index}/>
+            
+           let {name,category,format} = element;
+            
+            name = name.toLowerCase();
+            category = category.toLowerCase();
+            format = format.toLowerCase();
+            
+            if((name.indexOf(filterText)!==-1) || (category.indexOf(filterText)!==-1) ||(format.indexOf(filterText)!==-1)){
+                return <MediaItem {...element} key={index}/>
+            }
+            
         })
         return (
             <div id="mediaItemContainer"> 
+            
+               <MediaItemSearchBar searchMediaItems={this.searchMediaItems}/>
             
                <div id="mediaItemList">
                     <MediaItemHeader/>
                     {mediaItemsList}
                </div>
             
+                <MediaItemNavigation />
             </div>  
         );
     }

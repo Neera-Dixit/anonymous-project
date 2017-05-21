@@ -1,6 +1,6 @@
 import {EventEmitter} from 'events';
 import Dispatcher from '../dispatcher/index';
-import mockData from '../util/mockData';
+import mockData from '../util/mediaMockData';
 
 class MediaStore extends EventEmitter {
  
@@ -15,7 +15,7 @@ class MediaStore extends EventEmitter {
 
   fetchMediaAssetsFromApi(){
       this.mediaAssets = mockData;
-      this.emit('fetched');
+      this.emit('mediaFetched');
   }
   
   mediaStoreListener = (actionObj) => {

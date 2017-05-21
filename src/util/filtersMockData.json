@@ -1,0 +1,7 @@
+[{
+    "filterName" : "Asset Format",
+    "filters" : [{"filter" : "JPEG","count" : "45"}]
+},{
+    "filterName" : "Asset Type",
+    "filters" : [{"filter" : "Nature","count" : "21"},{"filter" : "Automobiles","count" : "11"}]
+}]

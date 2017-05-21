@@ -9,10 +9,10 @@ export default class MediaItemHeader extends Component {
     render(){
         return (
             <div id ="mediaListHeader"> 
-                <label>Image</label>
-                <label>Image Name</label>
-                <label>Image Category</label>
-                <label>Image Format</label>
+                <label>Asset</label>
+                <label>Asset Name</label>
+                <label>Asset Category</label>
+                <label>Asset Type</label>
             </div>  
         );
     }
